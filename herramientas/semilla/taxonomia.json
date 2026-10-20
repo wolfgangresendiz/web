@@ -1,0 +1,446 @@
+[
+  {
+    "id": "tuberia",
+    "nombre": "Tubería",
+    "descripcion": "Tubos para líneas de conducción, redes de distribución y trenes de descarga.",
+    "atributos": ["Diámetro nominal", "Norma"],
+    "hijos": [
+      {
+        "id": "tuberia-pvc",
+        "nombre": "PVC",
+        "hijos": [
+          { "id": "pvc-metrico", "nombre": "PVC hidráulico, serie métrica", "descripcion": "Clases 5, 7, 10 y 14 (NMX-E-145).", "atributos": ["Clase", "Tipo de unión", "Longitud de tramo"] },
+          { "id": "pvc-ingles", "nombre": "PVC hidráulico, serie inglesa (RD)", "descripcion": "RD 13.5, 21, 26, 32.5 y 41 (NMX-E-143 / ASTM D2241).", "atributos": ["RD", "Tipo de unión", "Longitud de tramo"] },
+          { "id": "pvc-cedula", "nombre": "PVC cédula 40 y 80", "atributos": ["Cédula", "Tipo de unión", "Longitud de tramo"] },
+          { "id": "pvc-orientado", "nombre": "PVC orientado (PVC-O)", "atributos": ["Presión nominal", "Tipo de unión", "Longitud de tramo"] }
+        ]
+      },
+      {
+        "id": "tuberia-polietileno",
+        "nombre": "Polietileno",
+        "hijos": [
+          { "id": "pead-presion", "nombre": "PEAD para presión (PE 100 / PE 4710)", "atributos": ["RD / SDR", "Presión nominal", "Presentación"] },
+          { "id": "pead-corrugado", "nombre": "PEAD corrugado y pared estructurada", "atributos": ["Rigidez", "Tipo de unión", "Longitud de tramo"] }
+        ]
+      },
+      {
+        "id": "tuberia-metalica",
+        "nombre": "Metálica",
+        "hijos": [
+          { "id": "hierro-ductil", "nombre": "Hierro dúctil", "atributos": ["Clase de presión", "Tipo de junta", "Revestimiento"] },
+          { "id": "acero-carbon", "nombre": "Acero al carbón", "atributos": ["Cédula / espesor", "Extremos", "Recubrimiento"] },
+          { "id": "acero-galvanizado", "nombre": "Acero galvanizado", "atributos": ["Cédula / espesor", "Extremos"] },
+          { "id": "acero-inoxidable", "nombre": "Acero inoxidable", "atributos": ["Grado", "Cédula / espesor", "Extremos"] }
+        ]
+      },
+      {
+        "id": "tuberia-otros",
+        "nombre": "Otros materiales",
+        "hijos": [
+          { "id": "prfv", "nombre": "Poliéster reforzado con fibra de vidrio (PRFV)", "atributos": ["Presión nominal", "Rigidez", "Tipo de unión"] },
+          { "id": "concreto-presforzado", "nombre": "Concreto presforzado", "atributos": ["Presión de trabajo", "Tipo de junta"] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conexiones",
+    "nombre": "Conexiones",
+    "descripcion": "Codos, tees, reducciones, juntas y demás piezas para unir y derivar tubería.",
+    "atributos": ["Diámetro nominal", "Ángulo / tipo", "Extremos"],
+    "hijos": [
+      {
+        "id": "conexiones-pvc",
+        "nombre": "Conexiones de PVC",
+        "hijos": [
+          { "id": "con-pvc-codos", "nombre": "Codos" },
+          { "id": "con-pvc-tees", "nombre": "Tees y cruces" },
+          { "id": "con-pvc-reducciones", "nombre": "Reducciones y adaptadores" },
+          { "id": "con-pvc-otras", "nombre": "Coples, tapones y otras" }
+        ]
+      },
+      {
+        "id": "conexiones-hierro",
+        "nombre": "Conexiones de hierro dúctil y fierro fundido",
+        "hijos": [
+          { "id": "con-fofo-codos", "nombre": "Codos" },
+          { "id": "con-fofo-tees", "nombre": "Tees y cruces" },
+          { "id": "con-fofo-reducciones", "nombre": "Reducciones" },
+          { "id": "con-fofo-carretes", "nombre": "Carretes, extremidades y tapas" }
+        ]
+      },
+      {
+        "id": "conexiones-pead",
+        "nombre": "Conexiones de PEAD",
+        "hijos": [
+          { "id": "con-pead-electrofusion", "nombre": "Electrofusión" },
+          { "id": "con-pead-termofusion", "nombre": "Termofusión a tope" },
+          { "id": "con-pead-mecanicas", "nombre": "Mecánicas (compresión)" }
+        ]
+      },
+      {
+        "id": "conexiones-acero",
+        "nombre": "Conexiones de acero",
+        "hijos": [
+          { "id": "con-acero-soldables", "nombre": "Soldables" },
+          { "id": "con-acero-bridas", "nombre": "Bridas" },
+          { "id": "con-acero-roscadas", "nombre": "Roscadas" }
+        ]
+      },
+      {
+        "id": "juntas-union",
+        "nombre": "Juntas y uniones",
+        "hijos": [
+          { "id": "juntas-gibault", "nombre": "Juntas Gibault" },
+          { "id": "juntas-mecanicas", "nombre": "Juntas mecánicas y universales (tipo Dresser)" },
+          { "id": "juntas-adaptadores", "nombre": "Adaptadores bridados y bridas universales" },
+          { "id": "juntas-empaques", "nombre": "Empaques y tornillería" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "valvulas",
+    "nombre": "Válvulas",
+    "descripcion": "Seccionamiento, regulación y protección de la red.",
+    "atributos": ["Diámetro nominal", "Presión de trabajo", "Material del cuerpo", "Extremos", "Norma"],
+    "hijos": [
+      {
+        "id": "valvulas-seccionamiento",
+        "nombre": "Seccionamiento",
+        "hijos": [
+          { "id": "val-compuerta", "nombre": "Compuerta" },
+          { "id": "val-mariposa", "nombre": "Mariposa" },
+          { "id": "val-esfera", "nombre": "Esfera" }
+        ]
+      },
+      {
+        "id": "valvulas-control",
+        "nombre": "Control y regulación",
+        "hijos": [
+          { "id": "val-reductora", "nombre": "Reductoras y sostenedoras de presión" },
+          { "id": "val-altitud", "nombre": "Altitud y control de nivel" },
+          { "id": "val-control-bomba", "nombre": "Control de bomba" },
+          { "id": "val-pilotos", "nombre": "Pilotos, controladores y accesorios de control" }
+        ]
+      },
+      {
+        "id": "valvulas-proteccion",
+        "nombre": "Protección de la red",
+        "hijos": [
+          { "id": "val-aire", "nombre": "Admisión y expulsión de aire" },
+          { "id": "val-check", "nombre": "Retención (check)" },
+          { "id": "val-alivio", "nombre": "Alivio y anticipadoras de onda" }
+        ]
+      },
+      {
+        "id": "valvulas-accesorios",
+        "nombre": "Accesorios para válvulas",
+        "hijos": [
+          { "id": "val-cajas", "nombre": "Cajas y registros para válvula" },
+          { "id": "val-actuadores", "nombre": "Actuadores, volantes y extensiones" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tomas",
+    "nombre": "Tomas domiciliarias",
+    "descripcion": "Del ramal de la red al cuadro del medidor.",
+    "atributos": ["Diámetro nominal", "Material"],
+    "hijos": [
+      {
+        "id": "tomas-derivacion",
+        "nombre": "Derivación",
+        "hijos": [
+          { "id": "tom-abrazaderas", "nombre": "Abrazaderas de derivación (silletas)", "atributos": ["Diámetro de la red", "Salida"] },
+          { "id": "tom-llaves-insercion", "nombre": "Llaves de inserción" }
+        ]
+      },
+      {
+        "id": "tomas-conduccion",
+        "nombre": "Conducción",
+        "hijos": [
+          { "id": "tom-tubo", "nombre": "Tubería para toma (PEAD, PE-AL-PE, cobre)", "atributos": ["Presentación"] },
+          { "id": "tom-conectores", "nombre": "Conectores y adaptadores" }
+        ]
+      },
+      {
+        "id": "tomas-cuadro",
+        "nombre": "Cuadro de medición",
+        "hijos": [
+          { "id": "tom-cuadro-kits", "nombre": "Kits y niples para cuadro" },
+          { "id": "tom-llaves-banqueta", "nombre": "Llaves de banqueta y válvulas de cuadro" },
+          { "id": "tom-cajas-medidor", "nombre": "Cajas y registros para medidor" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "medicion",
+    "nombre": "Medición e instrumentación",
+    "descripcion": "Medidores, instrumentos de campo y telemetría.",
+    "hijos": [
+      {
+        "id": "micromedicion",
+        "nombre": "Micromedición",
+        "atributos": ["Diámetro nominal", "Tecnología", "Clase metrológica / R", "Q3", "Lectura"],
+        "hijos": [
+          { "id": "med-domiciliarios", "nombre": "Medidores domiciliarios" },
+          { "id": "med-comerciales", "nombre": "Medidores comerciales e industriales" },
+          { "id": "med-lectura-remota", "nombre": "Lectura remota (AMR / AMI)", "atributos": ["Tecnología", "Comunicación", "Batería"] }
+        ]
+      },
+      {
+        "id": "macromedicion",
+        "nombre": "Macromedición",
+        "atributos": ["Diámetro nominal", "Tecnología", "Exactitud", "Alimentación", "Salidas"],
+        "hijos": [
+          { "id": "med-electromagneticos", "nombre": "Electromagnéticos" },
+          { "id": "med-ultrasonicos", "nombre": "Ultrasónicos" },
+          { "id": "med-mecanicos", "nombre": "Mecánicos (Woltmann)" }
+        ]
+      },
+      {
+        "id": "instrumentacion",
+        "nombre": "Instrumentación",
+        "atributos": ["Rango", "Exactitud", "Salida", "Alimentación"],
+        "hijos": [
+          { "id": "ins-presion", "nombre": "Presión (manómetros y transmisores)" },
+          { "id": "ins-nivel", "nombre": "Nivel" },
+          { "id": "ins-calidad", "nombre": "Calidad del agua en línea (cloro, turbiedad, pH)" }
+        ]
+      },
+      {
+        "id": "telemetria",
+        "nombre": "Telemetría y control",
+        "hijos": [
+          { "id": "tel-registradores", "nombre": "Registradores (data loggers)" },
+          { "id": "tel-rtu-plc", "nombre": "RTU, PLC y comunicaciones" },
+          { "id": "tel-software", "nombre": "Software y plataformas" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bombeo",
+    "nombre": "Bombeo",
+    "descripcion": "Equipos de bombeo, su parte eléctrica y presurización.",
+    "hijos": [
+      {
+        "id": "bombas",
+        "nombre": "Bombas",
+        "atributos": ["Potencia", "Caudal de diseño", "Carga dinámica total", "Voltaje / fases", "Diámetro de descarga"],
+        "hijos": [
+          { "id": "bom-sumergibles", "nombre": "Sumergibles para pozo" },
+          { "id": "bom-centrifugas", "nombre": "Centrífugas horizontales" },
+          { "id": "bom-turbina", "nombre": "Turbina vertical" },
+          { "id": "bom-dosificadoras", "nombre": "Dosificadoras", "atributos": ["Caudal máximo", "Presión máxima", "Alimentación"] }
+        ]
+      },
+      {
+        "id": "bombeo-electrico",
+        "nombre": "Equipo eléctrico",
+        "hijos": [
+          { "id": "ele-motores", "nombre": "Motores", "atributos": ["Potencia", "Voltaje / fases", "Velocidad", "Eficiencia"] },
+          { "id": "ele-variadores", "nombre": "Variadores de frecuencia y arrancadores", "atributos": ["Potencia", "Voltaje / fases"] },
+          { "id": "ele-tableros", "nombre": "Tableros y centros de control" },
+          { "id": "ele-conductores", "nombre": "Conductores y canalización" }
+        ]
+      },
+      {
+        "id": "bombeo-presurizacion",
+        "nombre": "Presurización",
+        "hijos": [
+          { "id": "pres-hidroneumaticos", "nombre": "Hidroneumáticos y tanques precargados" },
+          { "id": "pres-presion-constante", "nombre": "Sistemas de presión constante" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "potabilizacion",
+    "nombre": "Potabilización y desinfección",
+    "descripcion": "Equipos e insumos para tratar y desinfectar el agua.",
+    "hijos": [
+      {
+        "id": "desinfeccion",
+        "nombre": "Desinfección",
+        "hijos": [
+          { "id": "des-cloradores-gas", "nombre": "Cloradores de gas", "atributos": ["Capacidad", "Montaje"] },
+          { "id": "des-hipocloradores", "nombre": "Hipocloradores y dosificadores", "atributos": ["Capacidad", "Alimentación"] },
+          { "id": "des-generadores", "nombre": "Generadores de hipoclorito in situ", "atributos": ["Producción de cloro", "Consumo eléctrico"] },
+          { "id": "des-uv-ozono", "nombre": "UV y ozono", "atributos": ["Caudal", "Dosis"] }
+        ]
+      },
+      {
+        "id": "quimicos",
+        "nombre": "Insumos químicos",
+        "atributos": ["Concentración", "Presentación"],
+        "hijos": [
+          { "id": "qui-hipoclorito", "nombre": "Hipoclorito de sodio y de calcio" },
+          { "id": "qui-cloro-gas", "nombre": "Cloro gas" },
+          { "id": "qui-coagulantes", "nombre": "Coagulantes y floculantes" },
+          { "id": "qui-otros", "nombre": "Reactivos y otros químicos" }
+        ]
+      },
+      {
+        "id": "tratamiento",
+        "nombre": "Tratamiento",
+        "hijos": [
+          { "id": "tra-filtracion", "nombre": "Filtros y medios filtrantes" },
+          { "id": "tra-membranas", "nombre": "Membranas (ultrafiltración, ósmosis inversa)" },
+          { "id": "tra-remocion", "nombre": "Remoción de arsénico, flúor y metales" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almacenamiento",
+    "nombre": "Almacenamiento",
+    "descripcion": "Tanques, cisternas y sus accesorios.",
+    "hijos": [
+      {
+        "id": "tanques",
+        "nombre": "Tanques",
+        "atributos": ["Capacidad", "Material", "Dimensiones"],
+        "hijos": [
+          { "id": "tan-acero", "nombre": "Tanques de acero" },
+          { "id": "tan-polietileno", "nombre": "Tanques y cisternas de polietileno" },
+          { "id": "tan-concreto", "nombre": "Tanques de concreto" }
+        ]
+      },
+      {
+        "id": "tanques-accesorios",
+        "nombre": "Accesorios para tanques",
+        "hijos": [
+          { "id": "tan-accesorios", "nombre": "Escaleras, escotillas, respiraderos y flotadores" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "red",
+    "nombre": "Accesorios de red y obra",
+    "descripcion": "Hidrantes, registros y materiales de obra para la red.",
+    "hijos": [
+      {
+        "id": "red-hidrantes",
+        "nombre": "Hidrantes y tomas de servicio",
+        "hijos": [
+          { "id": "hid-incendio", "nombre": "Hidrantes contra incendio", "atributos": ["Diámetro nominal", "Tipo", "Salidas"] },
+          { "id": "hid-garzas", "nombre": "Garzas y tomas para pipas" }
+        ]
+      },
+      {
+        "id": "red-registros",
+        "nombre": "Registros, marcos y tapas",
+        "hijos": [
+          { "id": "reg-marcos-tapas", "nombre": "Marcos y tapas", "atributos": ["Material", "Clase de carga", "Dimensiones"] },
+          { "id": "reg-prefabricados", "nombre": "Cajas y registros prefabricados" }
+        ]
+      },
+      {
+        "id": "red-materiales",
+        "nombre": "Materiales de obra",
+        "hijos": [
+          { "id": "mat-senalizacion", "nombre": "Cinta de advertencia y señalización" },
+          { "id": "mat-atraques", "nombre": "Atraques, anclajes y soportes" },
+          { "id": "mat-construccion", "nombre": "Materiales de construcción" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "herramienta",
+    "nombre": "Herramienta y equipo",
+    "descripcion": "Equipo de detección, instalación, mantenimiento y seguridad.",
+    "hijos": [
+      {
+        "id": "her-deteccion",
+        "nombre": "Detección de fugas",
+        "hijos": [
+          { "id": "her-geofonos", "nombre": "Geófonos y correladores" },
+          { "id": "her-localizadores", "nombre": "Localizadores de tubería y metales" },
+          { "id": "her-registradores-ruido", "nombre": "Registradores de ruido" }
+        ]
+      },
+      {
+        "id": "her-instalacion",
+        "nombre": "Instalación y mantenimiento",
+        "hijos": [
+          { "id": "her-fusion", "nombre": "Máquinas de termofusión y electrofusión" },
+          { "id": "her-perforacion", "nombre": "Perforación en carga (tapping)" },
+          { "id": "her-corte", "nombre": "Corte, biselado y herramienta manual" }
+        ]
+      },
+      {
+        "id": "her-seguridad",
+        "nombre": "Seguridad",
+        "hijos": [
+          { "id": "seg-epp", "nombre": "Equipo de protección personal" },
+          { "id": "seg-gases", "nombre": "Detección de gases y espacios confinados" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "servicios",
+    "nombre": "Servicios",
+    "descripcion": "Laboratorio, mantenimiento, control de pérdidas, ingeniería, obra y logística.",
+    "atributos": ["Alcance", "Duración"],
+    "hijos": [
+      {
+        "id": "ser-laboratorio",
+        "nombre": "Laboratorio",
+        "hijos": [
+          { "id": "lab-analisis", "nombre": "Análisis de calidad del agua", "atributos": ["Parámetros", "Norma", "Acreditación"] },
+          { "id": "lab-muestreo", "nombre": "Muestreo y estudios especiales" }
+        ]
+      },
+      {
+        "id": "ser-mantenimiento",
+        "nombre": "Mantenimiento y operación",
+        "hijos": [
+          { "id": "mto-electromecanico", "nombre": "Mantenimiento electromecánico" },
+          { "id": "mto-pozos", "nombre": "Rehabilitación de pozos" },
+          { "id": "mto-tanques", "nombre": "Limpieza y desinfección de tanques" }
+        ]
+      },
+      {
+        "id": "ser-perdidas",
+        "nombre": "Control de pérdidas",
+        "hijos": [
+          { "id": "per-deteccion-fugas", "nombre": "Detección de fugas", "atributos": ["Método", "Extensión"] },
+          { "id": "per-sectorizacion", "nombre": "Sectorización y balance hidráulico" }
+        ]
+      },
+      {
+        "id": "ser-ingenieria",
+        "nombre": "Ingeniería y estudios",
+        "hijos": [
+          { "id": "ing-proyectos", "nombre": "Proyectos ejecutivos" },
+          { "id": "ing-topografia", "nombre": "Topografía y geotecnia" },
+          { "id": "ing-modelacion", "nombre": "Modelación hidráulica" }
+        ]
+      },
+      {
+        "id": "ser-obra",
+        "nombre": "Obra e instalación",
+        "hijos": [
+          { "id": "obr-tuberia", "nombre": "Instalación de tubería" },
+          { "id": "obr-electrica", "nombre": "Instalaciones eléctricas" },
+          { "id": "obr-civil", "nombre": "Obra civil" }
+        ]
+      },
+      {
+        "id": "ser-logistica",
+        "nombre": "Logística",
+        "hijos": [
+          { "id": "log-fletes", "nombre": "Fletes y transporte" },
+          { "id": "log-maniobras", "nombre": "Maniobras y renta de equipo" }
+        ]
+      }
+    ]
+  }
+]

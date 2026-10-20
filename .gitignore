@@ -1,0 +1,5 @@
+# Copia de trabajo en claro del catálogo y su llavero: NUNCA al repositorio (es público)
+.catalogo/
+
+node_modules/
+.DS_Store

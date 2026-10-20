@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Ajuste para celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Catálogo de cotizaciones · WR</title>
+
+  <!-- Catálogo privado: que los buscadores no lo indexen -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Catálogo privado de cotizaciones de piezas y servicios de agua potable.">
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/catalogo.css">
+
+  <!-- La app descifra datos/catalogo.enc en el navegador tras iniciar sesión -->
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p class="cargando">Cargando catálogo…</p>
+  </div>
+
+  <noscript>
+    <p class="cargando">Este catálogo necesita JavaScript activado.</p>
+  </noscript>
+</body>
+</html>

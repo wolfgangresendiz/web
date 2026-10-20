@@ -1,0 +1,15 @@
+{
+  "name": "web-wr",
+  "private": true,
+  "type": "module",
+  "description": "Sitio WR: calculadoras y catálogo de cotizaciones de agua potable",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "catalogo": "node herramientas/catalogo.mjs",
+    "demo": "node herramientas/catalogo.mjs demo",
+    "capturas": "node herramientas/capturas.mjs",
+    "test": "node --test \"herramientas/pruebas/*.test.mjs\""
+  }
+}

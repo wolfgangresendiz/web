@@ -1,0 +1,23 @@
+{
+  "formato": "catalogo-wr-acceso",
+  "version": 1,
+  "kdf": {
+    "algoritmo": "PBKDF2-SHA256",
+    "iteraciones": 600000
+  },
+  "huella": "d4645f3e1bd22106",
+  "usuarios": {
+    "394be3a2297dfbb5f864b763aa37d9fc25593a3f9b1369269b71b669f739f62e": {
+      "sal": "ZQPGCFWJmEYFC6zkTaZANA==",
+      "iteraciones": 600000,
+      "iv": "4IHkc8tMYvXaQJvY",
+      "llave": "I9IhcyED2OVxV4Oq6Is9MxUYglY4EO/E4e7Bsku0HxsKsfnLwoUDGtX2dHRO8ppz"
+    }
+  },
+  "administracion": {
+    "394be3a2297dfbb5f864b763aa37d9fc25593a3f9b1369269b71b669f739f62e": {
+      "iv": "xBgvWqDvIz2buu+t",
+      "datos": "W2XRa9P8vRCYQQSBuEm+DCUqd7PLdKxEOeq7222I7mQGdtexLvsWdl15UJ23hXe1Yf+r4x/XiwaBDVUovUWkOeuQf6+UfMY6f0WSgi0+q/GqlZT8tbLiDSf1UF1u7+HIPxFtLBdTeKzQxzl9y/gj/VSdrLuiVKRdh71/Afv/ab5g1eEveBQIiwsf3gQuTeu7jy+OYRTlNqz9LvhFvMJxkmOPNU+AA8uY2rXBlQAbU+H2kW/ow1NpJVSA34Mc9azr/sf6b/lCxjUh6yc="
+    }
+  }
+}
