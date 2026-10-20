@@ -1,0 +1,352 @@
+{
+  "nota": "Datos FICTICIOS para probar la interfaz (npm run catalogo -- demo). Las fechas se recorren para que 'referencia' coincida con el día en que se genera el demo. Nunca se publican.",
+  "referencia": "2026-10-20",
+  "config": {
+    "titulo": "Catálogo de cotizaciones · Agua potable (demo)",
+    "moneda_base": "MXN",
+    "iva": 0.16,
+    "drive": {}
+  },
+  "proveedores": [
+    {
+      "id": "hidraulica-norte-demo",
+      "nombre": "Hidráulica del Norte (demo)",
+      "razon_social": "Hidráulica del Norte Demo, S.A. de C.V.",
+      "rfc": "HND000000AAA",
+      "tipo": "Distribuidor",
+      "sitio_web": "https://example.com",
+      "telefono": "81 5555 0100",
+      "correo": "ventas@example.com",
+      "direccion": "Av. Ejemplo 123, Col. Centro",
+      "ciudad": "Monterrey, N.L.",
+      "marcas": ["Mueller", "Durman"],
+      "notas": "Entrega rápida en zona metropolitana. Ficticio.",
+      "contactos": [
+        { "id": "laura-mendez", "nombre": "Laura Méndez", "puesto": "Ejecutiva de ventas", "celular": "81 5555 0101", "correo": "laura@example.com" },
+        { "id": "ruben-garza", "nombre": "Rubén Garza", "puesto": "Gerente de sucursal", "telefono": "81 5555 0102" }
+      ]
+    },
+    {
+      "id": "valvulas-bajio-demo",
+      "nombre": "Válvulas y Conexiones del Bajío (demo)",
+      "razon_social": "VCB Demo, S.A. de C.V.",
+      "tipo": "Distribuidor",
+      "ciudad": "León, Gto.",
+      "marcas": ["Walworth", "Bermad"],
+      "contactos": [
+        { "id": "jorge-salinas", "nombre": "Jorge Salinas", "puesto": "Ventas industriales", "celular": "477 555 0110", "correo": "jorge@example.com" }
+      ]
+    },
+    {
+      "id": "aqua-instrumentos-demo",
+      "nombre": "Aqua Instrumentos (demo)",
+      "tipo": "Distribuidor de medición",
+      "ciudad": "Ciudad de México",
+      "marcas": ["MagDemo"],
+      "contactos": [
+        { "id": "mariana-ortiz", "nombre": "Mariana Ortiz", "puesto": "Ingeniera de aplicaciones", "celular": "55 5555 0120", "correo": "mariana@example.com" }
+      ]
+    },
+    {
+      "id": "laboratorio-demo",
+      "nombre": "Laboratorio Analítico (demo)",
+      "tipo": "Laboratorio acreditado",
+      "ciudad": "Querétaro, Qro.",
+      "contactos": [
+        { "id": "atencion", "nombre": "Atención a clientes", "telefono": "442 555 0130", "correo": "lab@example.com" }
+      ]
+    },
+    {
+      "id": "quimicos-centro-demo",
+      "nombre": "Químicos del Centro (demo)",
+      "tipo": "Distribuidor de químicos",
+      "ciudad": "San Luis Potosí, S.L.P.",
+      "contactos": [
+        { "id": "pedidos", "nombre": "Pedidos", "telefono": "444 555 0140" }
+      ]
+    }
+  ],
+  "productos": [
+    {
+      "id": "P-0001",
+      "tipo": "producto",
+      "nombre": "Tubo de PVC hidráulico 4\" (100 mm) clase 7",
+      "categoria": "pvc-metrico",
+      "unidad": "m",
+      "atributos": { "Diámetro nominal": "4\" (100 mm)", "Clase": "7", "Tipo de unión": "Espiga-campana con anillo", "Longitud de tramo": "6 m", "Norma": "NMX-E-145" },
+      "palabras_clave": ["tubo pvc 4", "tuberia 100 mm"]
+    },
+    {
+      "id": "P-0002",
+      "tipo": "producto",
+      "nombre": "Tubo de PVC hidráulico 6\" (160 mm) clase 7",
+      "categoria": "pvc-metrico",
+      "unidad": "m",
+      "atributos": { "Diámetro nominal": "6\" (160 mm)", "Clase": "7", "Tipo de unión": "Espiga-campana con anillo", "Longitud de tramo": "6 m", "Norma": "NMX-E-145" }
+    },
+    {
+      "id": "P-0003",
+      "tipo": "producto",
+      "nombre": "Válvula de compuerta 4\" vástago fijo, bridada",
+      "categoria": "val-compuerta",
+      "unidad": "pza",
+      "atributos": { "Diámetro nominal": "4\"", "Presión de trabajo": "250 psi", "Material del cuerpo": "Hierro dúctil", "Extremos": "Bridados ANSI 125", "Norma": "AWWA C509" },
+      "palabras_clave": ["gate valve", "valvula seccionamiento"]
+    },
+    {
+      "id": "P-0004",
+      "tipo": "producto",
+      "nombre": "Válvula de compuerta 6\" vástago fijo, bridada",
+      "categoria": "val-compuerta",
+      "unidad": "pza",
+      "atributos": { "Diámetro nominal": "6\"", "Presión de trabajo": "250 psi", "Material del cuerpo": "Hierro dúctil", "Extremos": "Bridados ANSI 125", "Norma": "AWWA C509" }
+    },
+    {
+      "id": "P-0005",
+      "tipo": "producto",
+      "nombre": "Válvula de admisión y expulsión de aire 2\"",
+      "categoria": "val-aire",
+      "unidad": "pza",
+      "atributos": { "Diámetro nominal": "2\"", "Presión de trabajo": "16 bar", "Material del cuerpo": "Hierro dúctil", "Extremos": "Rosca NPT" }
+    },
+    {
+      "id": "P-0006",
+      "tipo": "producto",
+      "nombre": "Medidor electromagnético 4\" bridado con batería",
+      "categoria": "med-electromagneticos",
+      "unidad": "pza",
+      "atributos": { "Diámetro nominal": "4\"", "Tecnología": "Electromagnético", "Exactitud": "±0.5 %", "Alimentación": "Batería 10 años", "Salidas": "Pulsos, Modbus" }
+    },
+    {
+      "id": "P-0007",
+      "tipo": "servicio",
+      "nombre": "Análisis fisicoquímico y bacteriológico completo NOM-127",
+      "categoria": "lab-analisis",
+      "unidad": "muestra",
+      "atributos": { "Parámetros": "Completo NOM-127", "Norma": "NOM-127-SSA1-2021", "Acreditación": "EMA" }
+    },
+    {
+      "id": "P-0008",
+      "tipo": "producto",
+      "nombre": "Junta Gibault 4\" para PVC",
+      "categoria": "juntas-gibault",
+      "unidad": "pza",
+      "atributos": { "Diámetro nominal": "4\"", "Material": "Fierro fundido", "Para tubería": "PVC" }
+    },
+    {
+      "id": "P-0009",
+      "tipo": "producto",
+      "nombre": "Hipoclorito de sodio al 13 %",
+      "categoria": "qui-hipoclorito",
+      "unidad": "L",
+      "atributos": { "Concentración": "13 %", "Presentación": "Garrafa de 20 L" }
+    }
+  ],
+  "cotizaciones": [
+    {
+      "id": "C-0001",
+      "proveedor": "hidraulica-norte-demo",
+      "contacto": "laura-mendez",
+      "folio": "HN-2025-418",
+      "fecha": "2025-11-12",
+      "vigencia": "2025-12-12",
+      "moneda": "MXN",
+      "precios_incluyen_iva": false,
+      "condiciones": { "pago": "Contado", "entrega": "Inmediata", "flete": "Incluido en Monterrey" },
+      "archivo": { "drive_id": "demo-c-0001", "nombre": "2025-11-12_C-0001_hidraulica-norte-demo_HN-2025-418.pdf" },
+      "partidas": [
+        { "producto": "P-0001", "descripcion": "TUBO PVC HCO 100MM CL-7 E/C TRAMO 6 MTS", "marca": "Durman", "cantidad": 20, "unidad": "tramo", "equivalencia": 6, "precio_unitario": 1020 },
+        { "producto": "P-0003", "descripcion": "VALVULA COMPUERTA 4\" V/F BRIDADA AWWA C509", "marca": "Mueller", "modelo": "A-2361", "cantidad": 4, "unidad": "pza", "precio_unitario": 6850 },
+        { "producto": "P-0008", "descripcion": "JUNTA GIBAULT 4\" P/PVC", "cantidad": 10, "unidad": "pza", "precio_unitario": 485 }
+      ]
+    },
+    {
+      "id": "C-0002",
+      "proveedor": "valvulas-bajio-demo",
+      "contacto": "jorge-salinas",
+      "folio": "VCB-1182",
+      "fecha": "2026-03-04",
+      "vigencia": "2026-04-03",
+      "moneda": "MXN",
+      "precios_incluyen_iva": true,
+      "condiciones": { "pago": "Crédito 30 días", "entrega": "10 días hábiles", "flete": "Por cuenta del cliente" },
+      "archivo": { "drive_id": "demo-c-0002", "nombre": "2026-03-04_C-0002_valvulas-bajio-demo_VCB-1182.pdf" },
+      "partidas": [
+        { "producto": "P-0003", "descripcion": "VALV. COMPUERTA 4 PULG. HD VASTAGO NO ASCENDENTE BRIDA 125#", "marca": "Walworth", "cantidad": 4, "unidad": "pza", "precio_unitario": 8120, "diferencias": ["Marca Walworth en lugar de Mueller", "Recubrimiento epóxico solo interior"] },
+        { "producto": "P-0004", "descripcion": "VALV. COMPUERTA 6 PULG. HD VASTAGO NO ASCENDENTE BRIDA 125#", "marca": "Walworth", "cantidad": 2, "unidad": "pza", "precio_unitario": 12180 },
+        { "producto": "P-0005", "descripcion": "VALVULA ELIMINADORA DE AIRE 2\" ROSCADA", "marca": "Bermad", "modelo": "C70", "cantidad": 6, "unidad": "pza", "precio_unitario": 3654 }
+      ]
+    },
+    {
+      "id": "C-0003",
+      "proveedor": "hidraulica-norte-demo",
+      "contacto": "laura-mendez",
+      "folio": "HN-2026-097",
+      "fecha": "2026-06-18",
+      "vigencia": "2026-07-18",
+      "moneda": "MXN",
+      "precios_incluyen_iva": false,
+      "condiciones": { "pago": "Contado", "entrega": "3 días hábiles", "flete": "Incluido en Monterrey" },
+      "archivo": { "drive_id": "demo-c-0003", "nombre": "2026-06-18_C-0003_hidraulica-norte-demo_HN-2026-097.pdf" },
+      "partidas": [
+        { "producto": "P-0001", "descripcion": "TUBO PVC HCO 100MM CL-7 E/C TRAMO 6 MTS", "marca": "Durman", "cantidad": 40, "unidad": "tramo", "equivalencia": 6, "precio_unitario": 1068 },
+        { "producto": "P-0002", "descripcion": "TUBO PVC HCO 160MM CL-7 E/C TRAMO 6 MTS", "marca": "Durman", "cantidad": 20, "unidad": "tramo", "equivalencia": 6, "precio_unitario": 2340 },
+        { "producto": "P-0003", "descripcion": "VALVULA COMPUERTA 4\" V/F BRIDADA AWWA C509", "marca": "Mueller", "modelo": "A-2361", "cantidad": 4, "unidad": "pza", "precio_unitario": 7150 },
+        { "producto": "P-0008", "descripcion": "JUNTA GIBAULT 4\" P/PVC", "cantidad": 12, "unidad": "pza", "precio_unitario": 498 }
+      ]
+    },
+    {
+      "id": "C-0004",
+      "proveedor": "aqua-instrumentos-demo",
+      "contacto": "mariana-ortiz",
+      "folio": "AQ-0912",
+      "fecha": "2026-09-08",
+      "vigencia": "2026-10-08",
+      "moneda": "USD",
+      "tipo_cambio": { "valor": 18.42, "fecha": "2026-09-08", "fuente": "Banxico FIX (valor de ejemplo)" },
+      "precios_incluyen_iva": false,
+      "condiciones": { "pago": "50 % anticipo, 50 % contra entrega", "entrega": "4 a 6 semanas", "lab": "CDMX" },
+      "archivo": { "drive_id": "demo-c-0004", "nombre": "2026-09-08_C-0004_aqua-instrumentos-demo_AQ-0912.pdf" },
+      "partidas": [
+        { "producto": "P-0006", "descripcion": "Electromagnetic flowmeter DN100 PN16, battery powered, IP68", "marca": "MagDemo", "modelo": "MD-100B", "cantidad": 2, "unidad": "pza", "precio_unitario": 1850 }
+      ]
+    },
+    {
+      "id": "C-0005",
+      "proveedor": "valvulas-bajio-demo",
+      "contacto": "jorge-salinas",
+      "folio": "VCB-1420",
+      "fecha": "2026-10-01",
+      "vigencia": "2026-10-31",
+      "moneda": "MXN",
+      "precios_incluyen_iva": false,
+      "condiciones": { "pago": "Crédito 30 días", "entrega": "8 días hábiles", "flete": "Incluido" },
+      "archivo": { "drive_id": "demo-c-0005", "nombre": "2026-10-01_C-0005_valvulas-bajio-demo_VCB-1420.pdf" },
+      "partidas": [
+        { "producto": "P-0003", "descripcion": "VALV. COMPUERTA 4 PULG. HD VASTAGO NO ASCENDENTE BRIDA 125#", "marca": "Walworth", "cantidad": 6, "unidad": "pza", "precio_unitario": 7240, "diferencias": ["Marca Walworth en lugar de Mueller", "Recubrimiento epóxico solo interior"] },
+        { "producto": "P-0004", "descripcion": "VALV. COMPUERTA 6 PULG. HD VASTAGO NO ASCENDENTE BRIDA 125#", "marca": "Walworth", "cantidad": 2, "unidad": "pza", "precio_unitario": 10890 },
+        { "producto": "P-0005", "descripcion": "VALVULA ELIMINADORA DE AIRE 2\" ROSCADA", "marca": "Bermad", "modelo": "C70", "cantidad": 6, "unidad": "pza", "precio_unitario": 3190 },
+        { "producto": "P-0008", "descripcion": "JUNTA GIBAULT 4\" PARA PVC CON TORNILLERIA", "cantidad": 10, "unidad": "pza", "precio_unitario": 470, "diferencias": ["Incluye tornillería galvanizada"] }
+      ]
+    },
+    {
+      "id": "C-0006",
+      "proveedor": "hidraulica-norte-demo",
+      "contacto": "ruben-garza",
+      "folio": "HN-2026-311",
+      "fecha": "2026-10-14",
+      "vigencia": "2026-11-13",
+      "moneda": "MXN",
+      "precios_incluyen_iva": false,
+      "proyecto": "Rehabilitación sector 12",
+      "condiciones": { "pago": "Contado", "entrega": "5 días hábiles", "flete": "Incluido en zona metropolitana" },
+      "archivo": { "drive_id": "demo-c-0006", "nombre": "2026-10-14_C-0006_hidraulica-norte-demo_HN-2026-311.pdf" },
+      "partidas": [
+        { "seccion": "Línea de conducción", "producto": "P-0001", "descripcion": "TUBO PVC HCO 100MM CL-7 E/C TRAMO 6 MTS", "marca": "Durman", "cantidad": 60, "unidad": "tramo", "equivalencia": 6, "precio_unitario": 1104 },
+        { "seccion": "Línea de conducción", "producto": "P-0002", "descripcion": "TUBO PVC HCO 160MM CL-7 E/C TRAMO 6 MTS", "marca": "Durman", "cantidad": 30, "unidad": "tramo", "equivalencia": 6, "precio_unitario": 2418 },
+        { "seccion": "Válvulas", "producto": "P-0003", "descripcion": "VALVULA COMPUERTA 4\" V/F BRIDADA AWWA C509", "marca": "Mueller", "modelo": "A-2361", "cantidad": 6, "unidad": "pza", "precio_unitario": 7380 },
+        { "seccion": "Válvulas", "producto": "P-0004", "descripcion": "VALVULA COMPUERTA 6\" V/F BRIDADA AWWA C509", "marca": "Mueller", "modelo": "A-2361", "cantidad": 2, "unidad": "pza", "precio_unitario": 11240 },
+        { "seccion": "Válvulas", "producto": null, "descripcion": "MANIOBRA DE DESCARGA EN OBRA", "cantidad": 1, "unidad": "servicio", "precio_unitario": 1500 }
+      ]
+    },
+    {
+      "id": "C-0007",
+      "proveedor": "laboratorio-demo",
+      "contacto": "atencion",
+      "folio": "LAB-26-0458",
+      "fecha": "2026-08-21",
+      "vigencia": "2026-12-31",
+      "moneda": "MXN",
+      "precios_incluyen_iva": false,
+      "condiciones": { "entrega": "Resultados en 10 días hábiles", "otras": "Incluye muestreo y cadena de custodia" },
+      "archivo": { "drive_id": "demo-c-0007", "nombre": "2026-08-21_C-0007_laboratorio-demo_LAB-26-0458.pdf" },
+      "partidas": [
+        { "producto": "P-0007", "descripcion": "Análisis completo NOM-127-SSA1-2021 (fisicoquímicos, metales y bacteriológicos)", "cantidad": 4, "unidad": "muestra", "precio_unitario": 6200 }
+      ]
+    },
+    {
+      "id": "C-0008",
+      "proveedor": "aqua-instrumentos-demo",
+      "contacto": "mariana-ortiz",
+      "folio": "AQ-1009",
+      "fecha": "2026-10-09",
+      "vigencia": "2026-11-08",
+      "moneda": "USD",
+      "tipo_cambio": { "valor": 18.31, "fecha": "2026-10-09", "fuente": "Banxico FIX (valor de ejemplo)" },
+      "precios_incluyen_iva": false,
+      "condiciones": { "pago": "50 % anticipo, 50 % contra entrega", "entrega": "3 a 4 semanas", "lab": "CDMX" },
+      "archivo": { "drive_id": "demo-c-0008", "nombre": "2026-10-09_C-0008_aqua-instrumentos-demo_AQ-1009.pdf" },
+      "partidas": [
+        { "producto": "P-0006", "descripcion": "Electromagnetic flowmeter DN100 PN16, battery powered, IP68", "marca": "MagDemo", "modelo": "MD-100B", "cantidad": 3, "unidad": "pza", "precio_unitario": 1790 }
+      ]
+    },
+    {
+      "id": "C-0009",
+      "proveedor": "quimicos-centro-demo",
+      "contacto": "pedidos",
+      "fecha": "2026-07-02",
+      "vigencia": "2026-07-17",
+      "moneda": "MXN",
+      "precios_incluyen_iva": true,
+      "archivo": { "drive_id": "demo-c-0009", "nombre": "2026-07-02_C-0009_quimicos-centro-demo.pdf" },
+      "partidas": [
+        { "producto": "P-0009", "descripcion": "HIPOCLORITO DE SODIO 13% GARRAFA 20 LT", "cantidad": 50, "unidad": "garrafa", "equivalencia": 20, "precio_unitario": 487.2 }
+      ]
+    },
+    {
+      "id": "C-0010",
+      "proveedor": "quimicos-centro-demo",
+      "contacto": "pedidos",
+      "fecha": "2026-10-03",
+      "vigencia": "2026-10-18",
+      "moneda": "MXN",
+      "precios_incluyen_iva": true,
+      "archivo": { "drive_id": "demo-c-0010", "nombre": "2026-10-03_C-0010_quimicos-centro-demo.pdf" },
+      "partidas": [
+        { "producto": "P-0009", "descripcion": "HIPOCLORITO DE SODIO 13% GARRAFA 20 LT", "cantidad": 50, "unidad": "garrafa", "equivalencia": 20, "precio_unitario": 527.8 }
+      ]
+    }
+  ],
+  "fichas": [
+    {
+      "id": "FT-0001",
+      "producto": "P-0005",
+      "titulo": "Válvula de aire combinada 2\" (demo)",
+      "fabricante": "Bermad",
+      "modelo": "C70",
+      "revision": "Rev. B",
+      "fecha": "2025-05-10",
+      "archivo": { "drive_id": "demo-ft-0001", "nombre": "FT-0001_P-0005_bermad_c70.pdf" },
+      "datos": [
+        { "parametro": "Presión de trabajo", "valor": "0.2 a 16 bar (3 a 232 psi)", "pagina": 1 },
+        { "parametro": "Presión de prueba", "valor": "24 bar", "pagina": 1 },
+        { "parametro": "Cuerpo", "valor": "Hierro dúctil con recubrimiento epóxico", "pagina": 2 },
+        { "parametro": "Flotador", "valor": "Polipropileno espumado", "pagina": 2 },
+        { "parametro": "Conexión", "valor": "Rosca NPT 2\"", "pagina": 2 },
+        { "parametro": "Temperatura máxima", "valor": "60 °C", "pagina": 2 },
+        { "parametro": "Certificación", "valor": "NSF/ANSI 61 (agua potable)", "pagina": 3 }
+      ]
+    },
+    {
+      "id": "FT-0002",
+      "producto": "P-0006",
+      "titulo": "Medidor electromagnético MD-100B (demo)",
+      "fabricante": "MagDemo",
+      "modelo": "MD-100B",
+      "fecha": "2026-01-15",
+      "archivo": { "drive_id": "demo-ft-0002", "nombre": "FT-0002_P-0006_magdemo_md-100b.pdf" },
+      "datos": [
+        { "parametro": "Exactitud", "valor": "±0.5 % del caudal", "pagina": 1 },
+        { "parametro": "Velocidad", "valor": "0.3 a 10 m/s", "pagina": 1 },
+        { "parametro": "Protección", "valor": "IP68", "pagina": 2 },
+        { "parametro": "Alimentación", "valor": "Batería de litio, 10 años", "pagina": 2 },
+        { "parametro": "Salidas", "valor": "Pulsos, 4-20 mA, Modbus RTU", "pagina": 3 }
+      ]
+    }
+  ],
+  "bitacora": [
+    { "fecha": "2026-10-14T17:20:00.000Z", "resumen": "+1 cotización, 4 productos actualizados", "cambios": ["Nueva cotización: C-0006 de Hidráulica del Norte (demo) (2026-10-14, 5 partidas)"] },
+    { "fecha": "2026-10-09T16:05:00.000Z", "resumen": "+1 cotización", "cambios": ["Nueva cotización: C-0008 de Aqua Instrumentos (demo) (2026-10-09, 1 partida)"] },
+    { "fecha": "2026-10-03T15:40:00.000Z", "resumen": "+1 cotización", "cambios": ["Nueva cotización: C-0010 de Químicos del Centro (demo) (2026-10-03, 1 partida)"] }
+  ]
+}
