@@ -101,6 +101,8 @@ test("precio normalizado: divisa, IVA incluido y equivalencia de unidades", () =
   // 116 / 1.16 = 100 USD sin IVA · 20 MXN/USD = 2000 MXN por unidad cotizada · ÷ 2 = 1000 MXN por unidad del producto
   assert.equal(Math.round(p.puMXN * 100) / 100, 1000);
   assert.equal(Math.round(p.importeMXN), 6000);
+  const opcional = precioPartida({ moneda: "MXN" }, { precio_unitario: 30000, cantidad: null });
+  assert.ok(Number.isNaN(opcional.importeMXN), "una partida sin cantidad no tiene importe");
   const mxn = precioPartida({ moneda: "MXN" }, { precio_unitario: 50, cantidad: 2 });
   assert.equal(mxn.puMXN, 50);
   assert.equal(mxn.tc, 1);

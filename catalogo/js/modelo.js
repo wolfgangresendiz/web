@@ -39,7 +39,8 @@ export function precioPartida(cotizacion, partida, config = {}) {
   const divisorIva = cotizacion.precios_incluyen_iva ? 1 + tasa : 1;
   const equivalencia = Number(partida.equivalencia ?? 1) || 1;
   const pu = Number(partida.precio_unitario);
-  const cantidad = Number(partida.cantidad);
+  // Sin cantidad (partida opcional o lista de precios) no hay importe.
+  const cantidad = partida.cantidad == null ? NaN : Number(partida.cantidad);
   const puSinIva = pu / divisorIva;
   return {
     moneda,

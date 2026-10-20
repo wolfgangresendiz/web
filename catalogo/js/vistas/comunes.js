@@ -91,18 +91,16 @@ export function precioMXN(oferta, unidad) {
 
 // Cómo se llegó al precio en MXN: divisa original, fecha y tipo de cambio,
 // IVA y equivalencia de unidades. Vacío si no hubo conversión alguna.
+// La fuente del tipo de cambio se muestra en el detalle de la cotización.
 export function notaConversion(oferta, { corta = false } = {}) {
   const p = oferta.precio;
   const c = oferta.cotizacion;
   const partes = [];
   if (p.moneda !== MONEDA_BASE) {
-    const tc = c.tipo_cambio ?? {};
     partes.push(
       corta
         ? `${dinero(p.puOriginal, p.moneda)} el ${fechaCorta(c.fecha)} · TC ${numero(p.tc)}`
-        : `Cotizado en ${p.moneda} el ${fechaCorta(c.fecha)}: ${dinero(p.puOriginal, p.moneda)}. TC ${numero(p.tc)}${
-            tc.fecha ? ` del ${fechaCorta(tc.fecha)}` : ""
-          }${tc.fuente ? ` (${tc.fuente})` : ""}`,
+        : `Cotizado en ${p.moneda} el ${fechaCorta(c.fecha)}: ${dinero(p.puOriginal, p.moneda)} · TC ${numero(p.tc)}`,
     );
   }
   if (p.ivaIncluido) partes.push(corta ? "IVA incl. descontado" : `El documento incluía IVA (${numero(p.tasa * 100)} %); aquí se muestra sin IVA`);
