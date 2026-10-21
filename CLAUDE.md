@@ -54,11 +54,13 @@ El usuario guarda los PDF en Drive, carpeta **Catálogo de cotizaciones · Agua 
 4. **Ficha técnica** (siempre de un producto específico)
    1. Identifica el producto; si no existe, créalo. Si la ficha cubre varios productos del catálogo, una ficha por producto con el mismo `drive_id`.
    2. `fichas/FT-xxxx.json` con los datos clave: `{ parametro, valor (con unidades), pagina }`. Los datos son un resumen; el PDF es la fuente.
-   3. Drive: carpeta `02 Fichas técnicas/<Fabricante>` (créala si falta y anótala en `config.drive.fichas_por_fabricante`); nombre y descripción con `archivo FT-xxxx`.
-5. `cerrar`. Corrige todos los errores; revisa los avisos (equivalencias, tipo de cambio fuera de rango, atributos escritos distinto).
-6. Revisa `producto P-…` de lo que cambió: precios normalizados razonables, agrupación correcta.
-7. Commit y push de `catalogo/datos/` con el mensaje sugerido. La bandeja debe quedar vacía.
-8. Reporta al usuario: qué se cargó (con enlaces `…/catalogo/#/cotizacion/C-xxxx`), qué se agrupó con productos existentes, diferencias detectadas, tipo de cambio usado y cualquier duda pendiente.
+   3. Drive: carpeta `02 Fichas técnicas/<Fabricante>` (créala si falta y anótala en `config.drive.fichas_por_fabricante`); nombre y descripción con `archivo FT-xxxx`. Un PDF ligado a varios productos se renombra una sola vez (con el primer FT) y todas sus fichas guardan ese nombre.
+   4. Catálogos generales de un fabricante o distribuidor (sin un producto concreto): no se registran; van a `02 Fichas técnicas/Catálogos generales` (`config.drive.catalogos_generales`).
+5. **Lo que no se cataloga** nunca se borra: se mueve a `03 No catalogados` (`config.drive.no_catalogados`) con una descripción breve. `duplicados` para las copias exactas, `versiones` para las revisiones anteriores (se carga solo la más reciente del mismo folio) y `otros` para las ofertas propias a clientes, los requisitos internos, las facturas, las normas, etc.
+6. `cerrar`. Corrige todos los errores; revisa los avisos (equivalencias, tipo de cambio fuera de rango, atributos escritos distinto).
+7. Revisa `producto P-…` de lo que cambió: precios normalizados razonables, agrupación correcta.
+8. Commit y push de `catalogo/datos/` con el mensaje sugerido. La bandeja debe quedar vacía.
+9. Reporta al usuario: qué se cargó (con enlaces `…/catalogo/#/cotizacion/C-xxxx`), qué se agrupó con productos existentes, diferencias detectadas, tipo de cambio usado y cualquier duda pendiente.
 
 ### Reglas de agrupación
 
