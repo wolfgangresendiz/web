@@ -1,0 +1,32 @@
+# Revisa que cada PR toque una sola zona del sitio (un proyecto o la zona
+# general, según proyectos.json). Para un cambio que cruza zonas a propósito,
+# agrega la etiqueta «varias-zonas» al PR.
+name: Zonas
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Zonas que toca el PR
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          CABEZA: ${{ github.event.pull_request.head.sha }}
+          RAMA: ${{ github.head_ref }}
+          VARIAS: ${{ contains(github.event.pull_request.labels.*.name, 'varias-zonas') }}
+        run: |
+          extra=()
+          if [ "$VARIAS" = "true" ]; then extra+=(--varias); fi
+          node herramientas/proyectos.mjs revisar --base "$BASE" --cabeza "$CABEZA" --rama "$RAMA" "${extra[@]}"

@@ -20,7 +20,7 @@ import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { comandos } from "./catalogo.mjs";
 
-const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const args = process.argv.slice(2);
 const opcion = (nombre, defecto) => {
   const i = args.indexOf(`--${nombre}`);

@@ -5,7 +5,7 @@
 // Errores: impiden guardar (datos rotos o reglas del catálogo violadas).
 // Avisos: se guardan igual, pero conviene revisarlos.
 
-import { esFechaISO, normalizar } from "../../catalogo/js/util.js";
+import { esFechaISO, normalizar } from "../../js/util.js";
 
 const RE = {
   producto: /^P-\d{4,}$/,

@@ -1,4 +1,4 @@
-// Pruebas del catálogo: node --test herramientas/pruebas/  (o npm test)
+// Pruebas del catálogo: node --test catalogo/herramientas/pruebas/  (o npm test)
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -14,10 +14,10 @@ import {
   entrar,
   idUsuario,
   nuevaDEK,
-} from "../../catalogo/js/boveda.js";
-import { construirIndice, precioPartida, diferenciasEntreOfertas, columnasDe } from "../../catalogo/js/modelo.js";
-import { crearBuscador, terminos } from "../../catalogo/js/buscar.js";
-import { valorNumerico, compararTexto, fechaCorta, esFechaISO } from "../../catalogo/js/util.js";
+} from "../../js/boveda.js";
+import { construirIndice, precioPartida, diferenciasEntreOfertas, columnasDe } from "../../js/modelo.js";
+import { crearBuscador, terminos } from "../../js/buscar.js";
+import { valorNumerico, compararTexto, fechaCorta, esFechaISO } from "../../js/util.js";
 import { validar } from "../lib/validar.mjs";
 import { leerLlavero, escribirLlavero, abrirLlavero, sellarLlavero } from "../lib/llavero.mjs";
 import { diferencias, describirCambios, empaquetar } from "../lib/fuente.mjs";
