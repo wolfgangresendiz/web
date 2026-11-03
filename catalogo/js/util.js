@@ -3,7 +3,7 @@
 // ============================================================
 //
 // Nada aquí toca el DOM: las mismas funciones las usan la web y
-// las herramientas de línea de comandos (herramientas/catalogo.mjs).
+// las herramientas de línea de comandos (catalogo/herramientas/catalogo.mjs).
 
 // ---- Texto ----
 

@@ -1,0 +1,13 @@
+{
+  "descripcion": "Proyectos del sitio. Cada uno solo edita sus carpetas; lo que no pertenece a ningún proyecto es de la zona general. Lo usan herramientas/proyectos.mjs, el hook de .claude/settings.json y la revisión de GitHub.",
+  "proyectos": {
+    "calculadoras": {
+      "nombre": "Calculadoras de ingeniería",
+      "carpetas": ["calculadoras"]
+    },
+    "catalogo": {
+      "nombre": "Catálogo de cotizaciones de agua potable",
+      "carpetas": ["catalogo", ".catalogo"]
+    }
+  }
+}

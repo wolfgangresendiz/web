@@ -4,7 +4,7 @@
 // ============================================================
 //
 // Uso:  npm run catalogo -- <comando> [opciones]
-//       (equivale a: node herramientas/catalogo.mjs <comando> [opciones])
+//       (equivale a: node catalogo/herramientas/catalogo.mjs <comando> [opciones])
 //
 // Flujo normal de una sesión de trabajo:
 //   1. abrir      → descifra la bóveda en .catalogo/fuente/ (JSON en claro)
@@ -36,23 +36,24 @@ import {
   idUsuario,
   normalizarUsuario,
   nuevaDEK,
-} from "../catalogo/js/boveda.js";
-import { construirIndice, rutaNombres } from "../catalogo/js/modelo.js";
-import { crearBuscador } from "../catalogo/js/buscar.js";
-import { dinero, hoyISO, slug, sumarDias, diasEntre } from "../catalogo/js/util.js";
+} from "../js/boveda.js";
+import { construirIndice, rutaNombres } from "../js/modelo.js";
+import { crearBuscador } from "../js/buscar.js";
+import { dinero, hoyISO, slug, sumarDias, diasEntre } from "../js/util.js";
 import { abrirLlavero, sellarLlavero, leerLlavero, escribirLlavero } from "./lib/llavero.mjs";
 import { leerFuente, escribirFuente, empaquetar, diferencias, describirCambios } from "./lib/fuente.mjs";
 import { validar, esUsuarioValido } from "./lib/validar.mjs";
 
-const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const HERRAMIENTAS = path.dirname(fileURLToPath(import.meta.url));
+const RAIZ = path.resolve(HERRAMIENTAS, "..", "..");
 const DATOS_WEB = path.join(RAIZ, "catalogo", "datos");
 const BOVEDA = path.join(DATOS_WEB, "catalogo.enc");
 const ACCESO = path.join(DATOS_WEB, "acceso.json");
 const PRIVADO = path.join(RAIZ, ".catalogo");
 const LLAVERO = path.join(PRIVADO, "llavero.txt");
 const FUENTE = path.join(PRIVADO, "fuente");
-const SEMILLA = path.join(RAIZ, "herramientas", "semilla", "taxonomia.json");
-const DEMO = path.join(RAIZ, "herramientas", "demo", "datos.json");
+const SEMILLA = path.join(HERRAMIENTAS, "semilla", "taxonomia.json");
+const DEMO = path.join(HERRAMIENTAS, "demo", "datos.json");
 const URL_SITIO = "https://wolfgangresendiz.github.io/web/catalogo/";
 
 const PREFIJOS = { producto: "P-", productos: "P-", cotizacion: "C-", cotizaciones: "C-", ficha: "FT-", fichas: "FT-" };
@@ -592,7 +593,11 @@ const comandos = {
     fs.mkdirSync(destino, { recursive: true });
     fs.cpSync(path.join(RAIZ, "catalogo"), path.join(destino, "catalogo"), {
       recursive: true,
-      filter: (origen) => !origen.includes(`${path.sep}datos`),
+      // Sin los datos reales ni las herramientas (el demo solo lleva la web)
+      filter: (origen) => {
+        const relativo = path.relative(path.join(RAIZ, "catalogo"), origen).split(path.sep)[0];
+        return relativo !== "datos" && relativo !== "herramientas";
+      },
     });
     for (const archivo of ["index.html", "css/styles.css"]) {
       fs.mkdirSync(path.dirname(path.join(destino, archivo)), { recursive: true });

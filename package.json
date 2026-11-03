@@ -7,9 +7,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "catalogo": "node herramientas/catalogo.mjs",
-    "demo": "node herramientas/catalogo.mjs demo",
-    "capturas": "node herramientas/capturas.mjs",
-    "test": "node --test \"herramientas/pruebas/*.test.mjs\""
+    "catalogo": "node catalogo/herramientas/catalogo.mjs",
+    "demo": "node catalogo/herramientas/catalogo.mjs demo",
+    "capturas": "node catalogo/herramientas/capturas.mjs",
+    "proyectos": "node herramientas/proyectos.mjs",
+    "test": "node --test \"herramientas/pruebas/*.test.mjs\" \"*/herramientas/pruebas/*.test.mjs\""
   }
 }

@@ -13,8 +13,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { compararId } from "../../catalogo/js/util.js";
-import { ESQUEMA } from "../../catalogo/js/modelo.js";
+import { compararId } from "../../js/util.js";
+import { ESQUEMA } from "../../js/modelo.js";
 
 export const COLECCIONES = ["proveedores", "productos", "cotizaciones", "fichas"];
 const SUELTOS = { config: {}, taxonomia: [], usuarios: [], bitacora: [] };

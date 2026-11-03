@@ -28,7 +28,7 @@ import {
   desenvolverDEK,
   idUsuario,
   normalizarUsuario,
-} from "../../catalogo/js/boveda.js";
+} from "../../js/boveda.js";
 
 const subtle = globalThis.crypto.subtle;
 const codificador = new TextEncoder();
