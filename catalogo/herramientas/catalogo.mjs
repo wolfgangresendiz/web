@@ -39,7 +39,7 @@ import {
 } from "../js/boveda.js";
 import { construirIndice, rutaNombres } from "../js/modelo.js";
 import { crearBuscador } from "../js/buscar.js";
-import { dinero, hoyISO, slug, sumarDias, diasEntre } from "../js/util.js";
+import { dinero, dineroDivisa, hoyISO, slug, sumarDias, diasEntre } from "../js/util.js";
 import { abrirLlavero, sellarLlavero, leerLlavero, escribirLlavero } from "./lib/llavero.mjs";
 import { leerFuente, escribirFuente, empaquetar, diferencias, describirCambios } from "./lib/fuente.mjs";
 import { validar, esUsuarioValido } from "./lib/validar.mjs";
@@ -353,7 +353,7 @@ const comandos = {
     for (const o of p.resumen.ofertas) {
       const c = o.cotizacion;
       const original = o.precio.moneda !== "MXN" || o.precio.ivaIncluido || o.precio.equivalencia !== 1
-        ? `  [orig. ${dinero(o.precio.puOriginal, o.precio.moneda)} ${o.unidad ?? ""}${o.precio.moneda !== "MXN" ? `, TC ${o.precio.tc}` : ""}${o.precio.ivaIncluido ? ", IVA incl." : ""}]`
+        ? `  [orig. ${dineroDivisa(o.precio.puOriginal, o.precio.moneda)} ${o.unidad ?? ""}${o.precio.moneda !== "MXN" ? `, TC ${o.precio.tc}` : ""}${o.precio.ivaIncluido ? ", IVA incl." : ""}]`
         : "";
       console.log(
         `  ${c.fecha}  ${c.id}  ${(c.proveedorObj?.nombre ?? c.proveedor).padEnd(30)} ${dinero(o.precio.puMXN).padStart(14)}  ` +

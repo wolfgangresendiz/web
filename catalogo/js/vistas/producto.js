@@ -7,7 +7,7 @@
 // en MXN sin IVA, señala en qué difieren y muestra la evolución del
 // precio en el tiempo. Los datos técnicos siempre remiten a su PDF.
 
-import { html, dinero, fechaCorta, mesCorto, numero, plural, porcentaje, antiguedad } from "../util.js";
+import { html, dinero, dineroDivisa, fechaCorta, mesCorto, numero, plural, porcentaje, antiguedad } from "../util.js";
 import { diferenciasEntreOfertas, rutaNombres } from "../modelo.js";
 import { dibujarHistorial, MAX_SERIES } from "../grafica.js";
 import {
@@ -243,7 +243,7 @@ function historial(p) {
               <td class="sin-corte">${enlaceCotizacion(c)} ${c.folio ? html`<span class="tenue">· ${c.folio}</span>` : ""}</td>
               <td class="num" data-valor="${o.cantidad ?? ""}">${o.cantidad != null ? `${numero(o.cantidad)} ${o.unidad ?? ""}` : ""}</td>
               <td class="num" data-valor="${o.precio.puOriginal}">
-                ${dinero(o.precio.puOriginal, o.precio.moneda)}
+                ${dineroDivisa(o.precio.puOriginal, o.precio.moneda)}
                 ${o.precio.ivaIncluido ? html`<span class="tenue bloque">IVA incluido</span>` : ""}
                 ${o.precio.moneda !== "MXN" ? html`<span class="tenue bloque">TC ${numero(o.precio.tc)}</span>` : ""}
               </td>
@@ -268,7 +268,7 @@ function seriesHistorial(p) {
     grupos.get(id).puntos.push({
       fecha: o.cotizacion.fecha,
       valor: o.precio.puMXN,
-      detalle: [o.cotizacion.id, o.precio.moneda !== "MXN" ? `${dinero(o.precio.puOriginal, o.precio.moneda)} · TC ${numero(o.precio.tc)}` : ""]
+      detalle: [o.cotizacion.id, o.precio.moneda !== "MXN" ? `${dineroDivisa(o.precio.puOriginal, o.precio.moneda)} · TC ${numero(o.precio.tc)}` : ""]
         .filter(Boolean)
         .join(" · "),
     });

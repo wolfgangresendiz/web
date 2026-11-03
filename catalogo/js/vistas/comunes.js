@@ -6,6 +6,7 @@ import {
   html,
   crudo,
   dinero,
+  dineroDivisa,
   numero,
   fechaCorta,
   urlDrive,
@@ -99,8 +100,8 @@ export function notaConversion(oferta, { corta = false } = {}) {
   if (p.moneda !== MONEDA_BASE) {
     partes.push(
       corta
-        ? `${dinero(p.puOriginal, p.moneda)} el ${fechaCorta(c.fecha)} · TC ${numero(p.tc)}`
-        : `Cotizado en ${p.moneda} el ${fechaCorta(c.fecha)}: ${dinero(p.puOriginal, p.moneda)} · TC ${numero(p.tc)}`,
+        ? `${dineroDivisa(p.puOriginal, p.moneda)} el ${fechaCorta(c.fecha)} · TC ${numero(p.tc)}`
+        : `Cotizado en ${p.moneda} el ${fechaCorta(c.fecha)}: ${dineroDivisa(p.puOriginal, p.moneda)} · TC ${numero(p.tc)}`,
     );
   }
   if (p.ivaIncluido) partes.push(corta ? "IVA incl. descontado" : `El documento incluía IVA (${numero(p.tasa * 100)} %); aquí se muestra sin IVA`);

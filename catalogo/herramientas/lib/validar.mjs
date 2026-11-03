@@ -16,8 +16,14 @@ const RE = {
   usuario: /^[a-z0-9][a-z0-9._-]{1,31}$/,
 };
 
-// Rango razonable de tipos de cambio, para detectar errores de captura.
-const RANGO_TC = { USD: [12, 30], EUR: [13, 35] };
+// Divisas registradas: MXN por unidad de la divisa, rango razonable para
+// detectar errores de captura. Una divisa nueva se agrega aquí al cargar
+// la primera cotización que la use (la validación avisa mientras falte).
+export const RANGO_TC = {
+  USD: [12, 30], // dólar estadounidense
+  EUR: [13, 35], // euro
+  DOP: [0.2, 0.5], // peso dominicano
+};
 
 export function validar(datos, { archivos = null } = {}) {
   const errores = [];
@@ -149,7 +155,8 @@ export function validar(datos, { archivos = null } = {}) {
           aviso(`${donde}: el tipo de cambio es posterior a la fecha de la cotización`);
         }
         const rango = RANGO_TC[moneda];
-        if (rango && (tc.valor < rango[0] || tc.valor > rango[1])) {
+        if (!rango) aviso(`${donde}: divisa ${moneda} sin registrar; agrégala a RANGO_TC en validar.mjs con su rango de tipo de cambio`);
+        else if (tc.valor < rango[0] || tc.valor > rango[1]) {
           aviso(`${donde}: tipo de cambio ${tc.valor} fuera del rango habitual para ${moneda} (${rango.join(" a ")}); revísalo`);
         }
       }

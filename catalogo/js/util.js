@@ -83,14 +83,15 @@ export function html(partes, ...valores) {
 // ---- Números y dinero ----
 
 const formatosMoneda = new Map();
-function formatoMoneda(moneda, decimales) {
-  const clave = `${moneda}:${decimales}`;
+function formatoMoneda(moneda, decimales, codigo = false) {
+  const clave = `${moneda}:${decimales}:${codigo}`;
   if (!formatosMoneda.has(clave)) {
     formatosMoneda.set(
       clave,
       new Intl.NumberFormat("es-MX", {
         style: "currency",
         currency: moneda,
+        currencyDisplay: codigo ? "code" : "symbol",
         minimumFractionDigits: decimales,
         maximumFractionDigits: decimales,
       }),
@@ -103,6 +104,13 @@ function formatoMoneda(moneda, decimales) {
 export function dinero(valor, moneda = "MXN", decimales = 2) {
   if (!Number.isFinite(valor)) return "";
   return formatoMoneda(moneda, decimales).format(valor);
+}
+
+// Siempre con el código ISO, también en MXN: MXN 1,234.50 · USD 1,234.50.
+// Para los montos tal como vienen en el documento, que pueden estar en cualquier divisa.
+export function dineroDivisa(valor, moneda = "MXN", decimales = 2) {
+  if (!Number.isFinite(valor)) return "";
+  return formatoMoneda(moneda, decimales, true).format(valor);
 }
 
 // Montos grandes abreviados para ejes: $950 · $12.5 k · $1.3 M
