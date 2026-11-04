@@ -25,3 +25,4 @@ Proyecto `calculadoras` del sitio WR. Entorno de Claude Code: `WEB_PROYECTO=calc
 - Las ecuaciones se escriben en LaTeX (`data-latex`) y las renderiza KaTeX (CDN con versión fija), con texto de respaldo.
 - Los scripts son clásicos (IIFE y `window`), no módulos, para que la página funcione también abierta como archivo (`file://`).
 - Al terminar, abre la página en el navegador (Playwright) y comprueba un cálculo conocido, p. ej. $d = 100\ \text{mm}$, $v = 1\ \text{m/s} \Rightarrow Q \approx 7.85\ \text{L/s}$.
+- Cada página HTML incluye a Darwin, la gatita del sitio, con `<script src="../js/darwin.js" defer></script>` en el `<head>` (script de la zona general, no se edita desde aquí).
