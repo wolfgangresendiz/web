@@ -303,7 +303,7 @@
 
     const estilo = document.createElement("style");
     estilo.textContent = `
-      #darwin { position: fixed; left: 0; bottom: 0; z-index: 9000; pointer-events: none;
+      #darwin { position: fixed; left: 0; bottom: 0; z-index: 9000; pointer-events: none; user-select: none; -webkit-user-select: none;
         will-change: transform; contain: layout style; }
       #darwin .darwin-cuerpo { position: relative; }
       #darwin.salta .darwin-cuerpo { animation: darwin-salto .45s ease-out; }
@@ -345,7 +345,7 @@
     let estado = "sentada", anim = ANIM.sentada, cuadroI = 0, cuadroT = 0;
     let destino = null, velocidad = 0, hasta = 0, proxima = 0, vy = 0;
     let ultimaActividad = ahora(), previo = ahora(), caricias = 0;
-    let temporizador = 0, rafId = 0, pintado = null, pintadoEspejo = false, arrastre = null, ignorarClic = false, ultimoPaseo = 0;
+    let piso = 0, ultimoPiso = 0, temporizador = 0, rafId = 0, pintado = null, pintadoEspejo = false, arrastre = null, ignorarClic = false, ultimoPaseo = 0;
 
     const anchoPx = () => ANCHO * escala;
     const limite = () => Math.max(0, document.documentElement.clientWidth - anchoPx());
@@ -389,7 +389,48 @@
     }
 
     function colocarRaiz() {
-      raiz.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
+      raiz.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y - piso)}px, 0)`;
+    }
+
+    // Piso: si debajo de ella hay una barra fija pegada a la orilla (p. ej. la de unidades
+    // de las calculadoras), se para encima para no tapar sus controles
+    function medirPiso() {
+      // Busca a 2, 12 y 24 px de la orilla: algunas barras flotan un poco arriba
+      const alto = innerHeight, cx = x + anchoPx() / 2;
+      let mayor = 0;
+      boton.style.pointerEvents = "none";
+      for (const dy of [2, 12, 24]) {
+        for (let el = document.elementFromPoint(cx, alto - dy); el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+          const pos = getComputedStyle(el).position;
+          if (pos !== "fixed" && pos !== "sticky") continue;
+          const r = el.getBoundingClientRect();
+          if (r.bottom >= alto - 32 && r.height < alto * 0.4) mayor = Math.max(mayor, Math.round(alto - r.top));
+          break;
+        }
+      }
+      boton.style.pointerEvents = "";
+      return mayor;
+    }
+
+    function actualizarPiso() {
+      ultimoPiso = ahora();
+      if (arrastre) return;
+      const nuevo = medirPiso();
+      if (nuevo === piso) return;
+      if (nuevo > piso) {
+        // Sube de un brinco
+        y = 0;
+        raiz.classList.remove("salta");
+        void raiz.offsetWidth;
+        raiz.classList.add("salta");
+      } else {
+        // Baja cayendo desde donde está
+        y -= piso - nuevo;
+        vy = 0;
+      }
+      piso = nuevo;
+      colocarRaiz();
+      programar();
     }
 
     function animar(nombre) {
@@ -513,7 +554,16 @@
       if (!arrastre || e.pointerId !== arrastre.id) return;
       const activo = arrastre.activo;
       arrastre = null;
-      if (activo) { ignorarClic = true; vy = 0; ultimaActividad = ahora(); previo = ahora(); programar(); }
+      if (activo) {
+        ignorarClic = true; vy = 0; ultimaActividad = ahora(); previo = ahora();
+        // Cae hasta el piso que haya debajo del punto donde la soltaste
+        const nuevo = medirPiso();
+        y -= piso - nuevo;
+        piso = nuevo;
+        if (y >= 0) { y = 0; cambiar("sentada"); globo("miau"); }
+        colocarRaiz();
+        programar();
+      }
     };
     boton.addEventListener("pointerup", soltar);
     boton.addEventListener("pointercancel", soltar);
@@ -531,14 +581,19 @@
         vy += 0.004 * dt;
         y = Math.min(0, y + vy * dt);
         colocarRaiz();
-        if (y === 0) { cambiar("sentada"); globo("miau"); }
-      } else if (estado === "camina" && destino != null) {
+        if (y === 0 && estado === "cargada") { cambiar("sentada"); globo("miau"); actualizarPiso(); }
+      }
+      if (estado === "camina" && destino != null) {
         x += dir * velocidad * dt;
         if ((dir > 0 && x >= destino) || (dir < 0 && x <= destino)) { x = destino; cambiar("sentada"); }
         colocarRaiz();
+        if (t - ultimoPiso > 200 || estado !== "camina") actualizarPiso();
+      } else if (y < 0) {
+        // Sigue cayendo
       } else if (hasta && t >= hasta) {
         cambiar("sentada");
       } else if (estado === "sentada" && t >= proxima) {
+        actualizarPiso();
         if (t - ultimaActividad > 75000) cambiar("dormida");
         else if (Math.random() < 0.35 && !caminarA(azar(0, limite()))) proxima = t + 8000;
         else proxima = t + azar(6000, 14000);
@@ -573,7 +628,7 @@
       previo = ahora();
       programar();
     });
-    addEventListener("resize", medir, { passive: true });
+    addEventListener("resize", () => { medir(); actualizarPiso(); }, { passive: true });
 
     let previa = null;
     try { previa = JSON.parse(leer(sesion, "darwin")); } catch (e) { /* nada */ }
@@ -583,6 +638,7 @@
       dir = previa.dir === 1 ? 1 : -1;
       colocarRaiz();
       cambiar(previa.dormida ? "dormida" : "sentada");
+      actualizarPiso();
     } else {
       // Primera página de la sesión: entra caminando desde la orilla derecha
       x = limite();

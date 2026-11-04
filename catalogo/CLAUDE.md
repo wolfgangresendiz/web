@@ -146,3 +146,4 @@ Después, commit de `catalogo/datos/`. Para que vean los PDF, comparte la carpet
 - Pruebas: `npm test` (las del catálogo están en `catalogo/herramientas/pruebas/`). Revisión visual: `npm run capturas` (genera el demo, entra con Playwright y guarda capturas en `.catalogo/capturas/`; reporta errores de consola).
 - Demo manual: `npm run demo`, luego `npx serve .catalogo/demo` y entra a `/catalogo/` con `demo` / `demo-catalogo`.
 - Si cambias el formato de los datos, sube `ESQUEMA` en `catalogo/js/modelo.js` y adapta `catalogo/herramientas/lib/validar.mjs`.
+- Cada página HTML incluye a Darwin, la gatita del sitio, con `<script src="../js/darwin.js" defer></script>` en el `<head>` (script de la zona general, no se edita desde aquí).
