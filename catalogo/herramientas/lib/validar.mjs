@@ -23,6 +23,11 @@ export const RANGO_TC = {
   USD: [12, 30], // dólar estadounidense
   EUR: [13, 35], // euro
   DOP: [0.2, 0.5], // peso dominicano
+  PEN: [3, 9], // sol peruano
+  CRC: [0.02, 0.06], // colón costarricense
+  QAR: [3, 9], // riyal qatarí
+  GBP: [15, 40], // libra esterlina
+  AED: [3, 9], // dirham de los Emiratos
 };
 
 export function validar(datos, { archivos = null } = {}) {
