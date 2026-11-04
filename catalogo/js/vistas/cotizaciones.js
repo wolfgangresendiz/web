@@ -2,7 +2,7 @@
 //  Cotizaciones: índice cronológico y detalle de cada documento
 // ============================================================
 
-import { html, dinero, fechaCorta, normalizar, numero, plural, antiguedad } from "../util.js";
+import { html, dinero, dineroDivisa, fechaCorta, normalizar, numero, plural, antiguedad } from "../util.js";
 import { ETIQUETAS_CONDICIONES, MONEDA_BASE } from "../modelo.js";
 import {
   ruta,
@@ -151,7 +151,7 @@ function tablaPartidas(c) {
           <th scope="col">Descripción del proveedor</th>
           <th scope="col">Marca / modelo</th>
           <th scope="col" class="num">Cantidad</th>
-          <th scope="col" class="num">P.U. cotizado</th>
+          <th scope="col" class="num">P.U. cotizado (${c.moneda || MONEDA_BASE})</th>
           <th scope="col" class="num">P.U. MXN sin IVA</th>
           <th scope="col" class="num">Importe MXN</th>
         </tr>
@@ -175,7 +175,7 @@ function tablaPartidas(c) {
             <td class="cita" data-etiqueta="Descripción del proveedor">${p.descripcion}${p.clave ? html`<span class="tenue bloque">Clave ${p.clave}</span>` : ""}${p.notas ? html`<span class="tenue bloque">${p.notas}</span>` : ""}</td>
             <td data-etiqueta="Marca / modelo">${marcaModelo(p)}</td>
             <td class="num" data-etiqueta="Cantidad">${p.cantidad != null ? `${numero(p.cantidad)} ${p.unidad ?? ""}` : html`<span class="tenue">${p.unidad ?? ""}</span>`}</td>
-            <td class="num" data-etiqueta="P.U. cotizado">${dinero(p.precio.puOriginal, p.precio.moneda)}${p.descuento ? html`<span class="tenue bloque">Desc. ${p.descuento}</span>` : ""}</td>
+            <td class="num" data-etiqueta="P.U. cotizado">${dineroDivisa(p.precio.puOriginal, p.precio.moneda)}${p.descuento ? html`<span class="tenue bloque">Desc. ${p.descuento}</span>` : ""}</td>
             <td class="num" data-etiqueta="P.U. MXN sin IVA">
               <strong>${dinero(p.precio.puMXN)}</strong>${p.productoObj ? html`<span class="precio__unidad"> /${p.productoObj.unidad}</span>` : ""}
               ${conversion ? html`<span class="precio__nota">${conversion}</span>` : ""}
@@ -190,7 +190,7 @@ function tablaPartidas(c) {
             <tr><th colspan="7" scope="row">IVA (${numero(c.totales.tasa * 100)} %)</th><td class="num">${dinero(c.totales.ivaMXN)}</td></tr>
             <tr class="total"><th colspan="7" scope="row">Total MXN</th><td class="num">${dinero(c.totales.totalMXN)}</td></tr>
             ${c.moneda && c.moneda !== MONEDA_BASE
-              ? html`<tr><th colspan="7" scope="row" class="tenue">Total en ${c.moneda}, como en el documento</th><td class="num tenue">${dinero(c.totales.totalOriginal, c.moneda)}</td></tr>`
+              ? html`<tr><th colspan="7" scope="row" class="tenue">Total en ${c.moneda}, como en el documento</th><td class="num tenue">${dineroDivisa(c.totales.totalOriginal, c.moneda)}</td></tr>`
               : ""}
           </tfoot>`
         : ""}

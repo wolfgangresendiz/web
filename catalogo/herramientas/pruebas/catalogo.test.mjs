@@ -17,7 +17,7 @@ import {
 } from "../../js/boveda.js";
 import { construirIndice, precioPartida, diferenciasEntreOfertas, columnasDe } from "../../js/modelo.js";
 import { crearBuscador, terminos } from "../../js/buscar.js";
-import { valorNumerico, compararTexto, fechaCorta, esFechaISO } from "../../js/util.js";
+import { valorNumerico, compararTexto, fechaCorta, esFechaISO, dinero, dineroDivisa } from "../../js/util.js";
 import { validar } from "../lib/validar.mjs";
 import { leerLlavero, escribirLlavero, abrirLlavero, sellarLlavero } from "../lib/llavero.mjs";
 import { diferencias, describirCambios, empaquetar } from "../lib/fuente.mjs";
@@ -209,4 +209,12 @@ test("las diferencias entre versiones se describen para la bitácora", () => {
   assert.equal(resumen, "1 producto actualizado, +1 cotización");
   assert.ok(detalle.some((d) => d.startsWith("Nueva cotización: C-0011")));
   assert.equal(diferencias(antes, copia(antes)).vacio, true);
+});
+
+test("los precios cotizados siempre dicen su divisa, también en MXN", () => {
+  const sinEspacios = (t) => t.replace(/\s/g, " ");
+  assert.equal(sinEspacios(dineroDivisa(1234.5, "MXN")), "MXN 1,234.50");
+  assert.equal(sinEspacios(dineroDivisa(1234.5, "USD")), "USD 1,234.50");
+  assert.equal(sinEspacios(dineroDivisa(99, "EUR")), "EUR 99.00");
+  assert.equal(dinero(1234.5), "$1,234.50");
 });

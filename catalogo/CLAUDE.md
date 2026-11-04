@@ -82,6 +82,8 @@ $$p_{\text{MXN}} = \frac{p \cdot TC}{(1+\tau)^{[\text{IVA incluido}]} \cdot e}$$
 
 - `precio_unitario` (`p`): el **neto** que trae el documento (después de descuentos), en la moneda del documento. El descuento va solo como texto en `descuento`.
 - `moneda` distinta de MXN exige `tipo_cambio: { valor, fecha, fuente }`. Usa el **FIX de Banxico** del día de emisión (si es inhábil, el último publicado antes) con `fuente: "Banxico FIX"`. Si el documento fija su propio tipo de cambio, usa ese con `fuente: "TC indicado en la cotización"`. Nunca inventes un valor: si no lo puedes consultar, pregunta.
+- Divisas registradas en `RANGO_TC` (`catalogo/herramientas/lib/validar.mjs`), con el rango razonable de MXN por unidad. La primera cotización en una divisa nueva la agrega ahí (código ISO 4217 y comentario con el nombre); mientras falte, `cerrar` avisa. Para divisas sin FIX, Banxico publica su equivalencia en sus tipos de cambio de otras divisas; si no se puede consultar, se calcula cruzando el FIX con la paridad del banco central de esa divisa y se anota en `fuente`.
+- La web muestra los precios del documento siempre con su código ISO (también MXN): columna «P.U. cotizado (<divisa>)».
 - `precios_incluyen_iva: true` si los precios unitarios ya traen IVA. `iva`: 0.16 general, 0.08 región fronteriza, 0 exento.
 - `equivalencia` (`e`): unidades del producto por unidad cotizada (p. ej. tramo de 6 m y producto por metro: `unidad: "tramo"`, `equivalencia: 6`).
 
