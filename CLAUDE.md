@@ -16,7 +16,7 @@ El sitio se divide en **proyectos**, uno por carpeta, registrados en `proyectos.
 
 | Zona | Carpetas | Instrucciones |
 |---|---|---|
-| `general` | `index.html`, `css/`, `herramientas/`, `.claude/`, `.github/`, `proyectos.json`, `package.json`, `README.md` | Este archivo |
+| `general` | `index.html`, `css/`, `js/`, `herramientas/`, `.claude/`, `.github/`, `proyectos.json`, `package.json`, `README.md` | Este archivo |
 | `calculadoras` | `calculadoras/` | `calculadoras/CLAUDE.md` |
 | `catalogo` | `catalogo/`, `.catalogo/` (privada) | `catalogo/CLAUDE.md` |
 
@@ -52,6 +52,7 @@ Para quitar o renombrar un proyecto, edita `proyectos.json` y la portada, y muev
 |---|---|
 | `index.html` | Portada: una tarjeta por sección. |
 | `css/styles.css` | Estilos base del sitio (tipografía, encabezado, tarjetas, formularios). |
+| `js/darwin.js` | Darwin, la gatita del sitio: aparece en cada página, responde a clics y lleva accesorios de temporada. |
 | `proyectos.json` | Registro de proyectos y sus carpetas. |
 | `herramientas/proyectos.mjs` | Zonas: comandos de arriba, hook y revisión de GitHub. Pruebas en `herramientas/pruebas/`. |
 | `herramientas/plantilla/` | Plantilla de proyecto nuevo (`{{ID}}`, `{{NOMBRE}}`). |
@@ -63,3 +64,14 @@ Para quitar o renombrar un proyecto, edita `proyectos.json` y la portada, y muev
 - HTML, CSS y JavaScript sin dependencias ni build; comentarios en español. Librerías externas solo por CDN con versión fija.
 - Rutas relativas (el sitio vive en `/web/`): desde un proyecto, lo común se enlaza con `../`.
 - Pruebas: `npm test` corre `herramientas/pruebas/` y las de cada proyecto (`*/herramientas/pruebas/`).
+
+## Darwin, la gatita del sitio
+
+`js/darwin.js` dibuja a Darwin (pixel art) en la orilla inferior de cada página. Es autocontenido: inyecta su propio estilo, no usa librerías y solo su cuerpo recibe clics.
+
+- **Cada página HTML del sitio la incluye** con una línea en el `<head>`: `<script src="../js/darwin.js" defer></script>` (desde la raíz, `js/darwin.js`). La plantilla de proyectos ya la trae.
+- Comportamiento: se sienta, pasea, se duerme tras 75 s sin actividad; al hacer clic en la página voltea o camina hacia ahí; al acariciarla ronronea y saluda (cada 5 caricias salta); se puede arrastrar. Recuerda su lugar entre páginas de la misma sesión.
+- Accesorios por fecha en `TEMPORADAS` (Reyes, invierno, San Valentín, primavera, verano, fiestas patrias, otoño, Halloween, Día de Muertos, Navidad). Para verlos: `?darwin=<id>` (p. ej. `?darwin=navidad`).
+- `?darwin=no` la oculta en ese navegador; `?darwin=si` la regresa. Respeta `prefers-reduced-motion` (no camina) y no se imprime.
+- Rendimiento: repinta un canvas pequeño solo al cambiar de cuadro, usa `requestAnimationFrame` solo mientras se mueve y se detiene con la pestaña oculta.
+- Pruebas en `herramientas/pruebas/darwin.test.mjs` (temporadas, sprites y que los accesorios quepan).
