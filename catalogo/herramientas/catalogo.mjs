@@ -54,7 +54,7 @@ const LLAVERO = path.join(PRIVADO, "llavero.txt");
 const FUENTE = path.join(PRIVADO, "fuente");
 const SEMILLA = path.join(HERRAMIENTAS, "semilla", "taxonomia.json");
 const DEMO = path.join(HERRAMIENTAS, "demo", "datos.json");
-const URL_SITIO = "https://wolfgangresendiz.github.io/web/catalogo/";
+const URL_SITIO = "https://wolyf.github.io/web/catalogo/";
 
 const PREFIJOS = { producto: "P-", productos: "P-", cotizacion: "C-", cotizaciones: "C-", ficha: "FT-", fichas: "FT-" };
 

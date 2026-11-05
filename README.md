@@ -1,6 +1,6 @@
 # web
 
-Sitio personal WR, publicado con GitHub Pages en https://wolfgangresendiz.github.io/web/
+Sitio personal WR, publicado con GitHub Pages en https://wolyf.github.io/web/
 
 El sitio se divide en proyectos, uno por carpeta (`proyectos.json`). Cada proyecto tiene su `CLAUDE.md` y se trabaja desde su propio entorno de Claude Code (`WEB_PROYECTO=<id>`); lo compartido (portada, estilos base, herramientas) es la zona general. Detalles en `CLAUDE.md`.
 
