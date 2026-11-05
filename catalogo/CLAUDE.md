@@ -1,6 +1,6 @@
 # Catálogo de cotizaciones de agua potable
 
-Proyecto `catalogo` del sitio WR, publicado en https://wolfgangresendiz.github.io/web/catalogo/. Entorno de Claude Code: `WEB_PROYECTO=catalogo`, con las credenciales `CATALOGO_*`.
+Proyecto `catalogo` del sitio WR, publicado en https://wolyf.github.io/web/catalogo/. Entorno de Claude Code: `WEB_PROYECTO=catalogo`, con las credenciales `CATALOGO_*`.
 
 ## Zona
 

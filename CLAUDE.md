@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Sitio personal **WR** (GitHub Pages, se publica desde `main`): https://wolfgangresendiz.github.io/web/
+Sitio personal **WR** (GitHub Pages, se publica desde `main`): https://wolyf.github.io/web/
 
 Preferencias del dueño: responder en español; no usar el guion largo (U+2014) en textos, interfaz ni mensajes; notación formal cuando aporte.
 
